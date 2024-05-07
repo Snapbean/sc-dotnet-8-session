@@ -1,0 +1,10 @@
+@Snapbean.DevDay2024.ShortCircuitRouting_HostAddress = http://localhost:5217
+
+GET {{Snapbean.DevDay2024.ShortCircuitRouting_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###
+
+GET {{Snapbean.DevDay2024.ShortCircuitRouting_HostAddress}}/health
+
+###

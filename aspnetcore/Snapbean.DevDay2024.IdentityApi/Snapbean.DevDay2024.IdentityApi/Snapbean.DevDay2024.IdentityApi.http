@@ -1,0 +1,52 @@
+@Snapbean.DevDay2024.IdentityApi_HostAddress = http://localhost:5128
+@userdata = "valid-email"
+@password = "pw"
+@token = validToken
+
+### Register user
+POST {{Snapbean.DevDay2024.IdentityApi_HostAddress}}/account/register
+Content-Type: application/json
+
+{
+  "username": {{userdata}},
+  "password": {{password}},
+  "email": {{userdata}}
+}
+
+### Login - get token
+POST {{Snapbean.DevDay2024.IdentityApi_HostAddress}}/account/login
+Content-Type: application/json
+
+{
+  "username": {{userdata}},
+  "password": {{password}},
+  "email": {{userdata}}
+}
+
+### Login - get cookie
+POST {{Snapbean.DevDay2024.IdentityApi_HostAddress}}/account/login?useCookies=true
+Content-Type: application/json
+
+{
+  "username": {{userdata}},
+  "password": {{password}},
+  "email": {{userdata}}
+}
+
+### Get User-info with cookie
+GET {{Snapbean.DevDay2024.IdentityApi_HostAddress}}/account/manage/info
+Accept: application/json
+
+### Get User-info with token
+GET {{Snapbean.DevDay2024.IdentityApi_HostAddress}}/account/manage/info
+Accept: application/json
+Authorization: Bearer {{token}}
+
+### Api call with cookie
+GET {{Snapbean.DevDay2024.IdentityApi_HostAddress}}/weatherforecast/
+Accept: application/json
+
+### Api call with token
+GET {{Snapbean.DevDay2024.IdentityApi_HostAddress}}/weatherforecast/
+Accept: application/json
+Authorization: Bearer {{token}}

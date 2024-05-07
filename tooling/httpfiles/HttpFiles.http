@@ -1,0 +1,25 @@
+@location=Zürich
+
+GET {{HostAddress}}/weatherforecast/
+Accept: application/json
+
+###
+
+GET {{HostAddress}}/weatherforecast/{{location}}
+
+###
+
+POST {{HostAddress}}/weatherforecast
+Content-Type: application/json
+
+{
+    "date": "2024-05-10",
+    "temperatureC": 30,
+    "summary": "Warm",
+    "location": "Luzern"
+}
+
+###
+
+GET {{HostAddress}}/weatherforecast/secret
+X-API-KEY: {{ApiKey}}
